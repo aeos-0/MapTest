@@ -51,7 +51,12 @@ void generateData(map<string, int> &data) {
 
 
 void insertData(map<string, int>& data) {
-
+    int number;
+    string item;
+    cout << "Enter the new item followed by the amount youd like to stock!" << endl;
+    cin >> item >> number;
+    data.insert({ item, number });
+    cout << "The new item " << item << " has been added with a stock of " << number << endl;
 }
 
 
@@ -116,16 +121,19 @@ int main()
         }
 
         //Continue loop?
-        cout << "Would you like to continue?" << endl << "Please type 'y' or 'n'" << endl;
-        cin >> input;
+        if (end = false) {
+            cout << "Would you like to continue?" << endl << "Please type 'y' or 'n'" << endl;
+            cin >> input;
 
 
-        if ((input == 'y') || (input == 'Y'))
-            end = false;
-        else if ((input == 'n') || (input == 'N'))
-            end = true;
-        else
-            cout << "Invalid input, returning to main menu";
+            if ((input == 'y') || (input == 'Y'))
+                end = false;
+            else if ((input == 'n') || (input == 'N'))
+                end = true;
+            else
+                cout << "Invalid input, returning to main menu";
+        
+        }
     
     } while (!end);
 
