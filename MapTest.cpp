@@ -32,16 +32,18 @@ void generateData(map<string, int> &data) {
     cout << "Generating random values for stock... " << endl;
     this_thread::sleep_for(3000ms);
     //Value for inventory amount
-    int num{ 10 };
+    int num{ 5 };
     int random;
     srand((unsigned)time(NULL));
     
     for (int i = 0; i < num; i++) {
         //Inventory values 1-10000
-        random = 1 + (rand() % 10000);
         //Loop for number of values in map
-
-        cout << random << endl;
+        for (auto &value : data) {
+            random = 1 + (rand() % 10000);
+            value.second = random;
+        }
+        //cout << random << endl;
 
     }
 }
@@ -55,7 +57,7 @@ void insertData(map<string, int>& data) {
 
 
 void displayData(map<string, int>& data) {
-    for (auto const& pair : data) {
+    for (auto const &pair : data) {
         cout << "The stock of " << pair.first << " is " << pair.second << endl;
     }
 }
@@ -93,7 +95,7 @@ int main()
             tolower(input);
         }
             
-
+        //Menu
         switch (input) {
             case 'i':
                 insertData(storeStock);
@@ -102,7 +104,7 @@ int main()
                 displayData(storeStock);
                 break;
             case 'g':
-                cout << "The program will generate 10 new inventory values!" << endl;
+                cout << "The program will generate 5 new inventory values!" << endl;
                 generateData(storeStock);
                 break;
             case 'q':
@@ -113,6 +115,7 @@ int main()
                 break;
         }
 
+        //Continue loop?
         cout << "Would you like to continue?" << endl << "Please type 'y' or 'n'" << endl;
         cin >> input;
 
