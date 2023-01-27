@@ -29,6 +29,8 @@ void num_check(string& input, bool &valid) {
 
 void generateData(map<string, int> &data) {
     //Generate loop
+    cout << "Generating random values for stock... " << endl;
+    this_thread::sleep_for(3000ms);
     //Value for inventory amount
     int num{ 10 };
     int random;
@@ -46,6 +48,19 @@ void generateData(map<string, int> &data) {
 
 
 
+void insertData(map<string, int>& data) {
+
+}
+
+
+
+void displayData(map<string, int>& data) {
+    for (auto const& pair : data) {
+        cout << "The stock of " << pair.first << " is " << pair.second << endl;
+    }
+}
+
+
 int main()
 {
     bool valid{ true };
@@ -60,8 +75,7 @@ int main()
     };
 
 
-    cout << "Generating random values for stock... " << endl;
-    this_thread::sleep_for(3000ms);
+
     
     //Generate
     generateData(storeStock);
@@ -71,7 +85,6 @@ int main()
         cout << "Welcome to the database!" << "\tWhat would you like to do?" << endl;
         cout << "Type 'i' to insert new values\n";
         cout << "Type 'v' to view the data\n";
-        cout << "Type 'c' to change  the current values\n";
         cout << "Type 'g' to generate new values\n";
         cout << "Or type 'q' to quit\n";
         cin >> input;
@@ -83,12 +96,13 @@ int main()
 
         switch (input) {
             case 'i':
+                insertData(storeStock);
                 break;
             case 'v':
-                break;
-            case 'c':
+                displayData(storeStock);
                 break;
             case 'g':
+                cout << "The program will generate 10 new inventory values!" << endl;
                 generateData(storeStock);
                 break;
             case 'q':
@@ -96,13 +110,14 @@ int main()
                 break;
             default:
                 cout << "Invalid input, next time use one of the values listed above" << endl;
+                break;
         }
 
         cout << "Would you like to continue?" << endl << "Please type 'y' or 'n'" << endl;
         cin >> input;
 
 
-        if ((input == 'y') || (input == 'y'))
+        if ((input == 'y') || (input == 'Y'))
             end = false;
         else if ((input == 'n') || (input == 'N'))
             end = true;
