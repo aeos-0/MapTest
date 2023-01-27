@@ -1,3 +1,2 @@
 ﻿  MapTest.cpp
-C:\Users\xande\Documents\VSProj\MapTest\MapTest.cpp(38,9): warning C4101: 'rand': unreferenced local variable
   MapTest.vcxproj -> C:\Users\xande\Documents\VSProj\MapTest\x64\Debug\MapTest.exe

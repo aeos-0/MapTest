@@ -4,6 +4,7 @@
 #include <iostream>
 #include <map>
 #include <string>
+#include <cstdlib>
 #include <ctype.h>
 #include <chrono>
 #include <thread>
@@ -32,7 +33,8 @@ int main()
 {
     bool valid{ true };
     bool end{ false };
-    int rand;
+    int random;
+    srand((unsigned)time(NULL));
     string amount{};
     cout << "Welcome to the inventory data base";
     //Declare Maps
@@ -45,8 +47,9 @@ int main()
     
     for (int i = 0; i < num; i++) {
         //Generate values for the amount specified by the user
-        cout << ".";
-        
+        //Inventory values 1-10000
+        random = 1 + (rand() % 10000);
+        cout << random << endl;
     }
 
 
